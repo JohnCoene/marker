@@ -63,10 +63,7 @@ ui <- fluidPage(
       ".red{background-color:#FFB8C3;}.blue{background-color:#6ECFEA;}"
     )
   ),
-  p(
-    id = "text-to-mark",
-    lorem
-  ),
+  p(id = "text-to-mark",lorem),
   textInput("text", "text to highlight"),
   textInput("text2", "text to highlight")
 )
