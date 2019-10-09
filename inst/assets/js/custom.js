@@ -4,6 +4,13 @@ Shiny.addCustomMessageHandler('marker-init', function(opts) {
 });
 
 Shiny.addCustomMessageHandler('marker-mark', function(opts) {
+  done = function(counter){
+    Shiny.setInputValue(opts.name + '_marked' + ":markerParse", counter);
+  };
+
+  if(opts.marked)
+    opts.options.done = done;
+  
   window.marker[opts.name].mark(opts.keywords, opts.options)
 });
 
@@ -12,9 +19,21 @@ Shiny.addCustomMessageHandler('marker-unmark', function(opts) {
 });
 
 Shiny.addCustomMessageHandler('marker-mark-regex', function(opts) {
+  done = function(counter){
+    Shiny.setInputValue(opts.name + '_marked' + ":markerParse", counter);
+  };
+
+  if(opts.marked)
+    opts.options.done = done;
   window.marker[opts.name].markRegExp(opts.regex, opts.options)
 });
 
 Shiny.addCustomMessageHandler('marker-mark-ranges', function(opts) {
+  done = function(counter){
+    Shiny.setInputValue(opts.name + '_marked' + ":markerParse", counter);
+  };
+
+  if(opts.marked)
+    opts.options.done = done;
   window.marker[opts.name].markRanges(opts.ranges, opts.options)
 });

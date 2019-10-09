@@ -74,8 +74,12 @@ marker <- R6::R6Class(
 #' @param ... Options passed to JavaScript, see the 
 #' \href{https://markjs.io/}{official documentation} under "mark"
 #' for the full list.
+#' @param send_marked Whether to send the number of highlighted 
+#' keywords to the R server. These can then be accessed with 
+#' the \code{get_marked} method. Note that this overwrites the 
+#' \code{done} options passed to the three dot construct.
 
-    mark = function(keywords, ...){
+    mark = function(keywords, ..., send_marked = FALSE){
       assert_that(has_it(keywords))
 
       private$.session$sendCustomMessage(
@@ -83,6 +87,7 @@ marker <- R6::R6Class(
         list(
           name = private$.name,
           keywords = keywords,
+          marked = send_marked,
           options = list(...)
         )
       )
@@ -114,8 +119,12 @@ marker <- R6::R6Class(
 #' @param ... Options passed to JavaScript, see the 
 #' \href{https://markjs.io/}{official documentation} under "markRegExp"
 #' for the full list.
+#' @param send_marked Whether to send the number of highlighted 
+#' keywords to the R server. These can then be accessed with 
+#' the \code{get_marked} method. Note that this overwrites the 
+#' \code{done} options passed to the three dot construct.
 
-    mark_regex = function(regex, ...){
+    mark_regex = function(regex, ..., send_marked = FALSE){
       assert_that(has_it(regex))
 
       private$.session$sendCustomMessage(
@@ -123,6 +132,7 @@ marker <- R6::R6Class(
         list(
           name = private$.name,
           regex = regex,
+          marked = send_marked,
           options = list(...)
         )
       )
@@ -134,8 +144,12 @@ marker <- R6::R6Class(
 #' @param ... Options passed to JavaScript, see the 
 #' \href{https://markjs.io/}{official documentation} under "markRanges"
 #' for the full list.
+#' @param send_marked Whether to send the number of highlighted 
+#' keywords to the R server. These can then be accessed with 
+#' the \code{get_marked} method. Note that this overwrites the 
+#' \code{done} options passed to the three dot construct.
 
-    mark_ranges = function(ranges, ...){
+    mark_ranges = function(ranges, ..., send_marked = FALSE){
       assert_that(has_it(ranges))
       ranges <- as.list(ranges)
 
@@ -144,9 +158,17 @@ marker <- R6::R6Class(
         list(
           name = private$.name,
           ranges = ranges,
+          marked = send_marked,
           options = list(...)
         )
       )
+    },
+
+#' @details A method to returned the number of keywords marked.
+
+    get_marked = function(){
+      input <- paste0(private$.name, "_marked")
+      private$.session$input[[input]]
     }
   ),
   active = list(

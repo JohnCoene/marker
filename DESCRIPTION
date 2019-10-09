@@ -24,5 +24,6 @@ Imports:
     R6,
     shiny,
     crayon,
+    jsonlite,
     assertthat
 RoxygenNote: 6.1.99.9001

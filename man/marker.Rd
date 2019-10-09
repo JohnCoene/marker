@@ -56,6 +56,7 @@ assigned reactive context.}
 \item \href{#method-unmark}{\code{marker$unmark()}}
 \item \href{#method-mark_regex}{\code{marker$mark_regex()}}
 \item \href{#method-mark_ranges}{\code{marker$mark_ranges()}}
+\item \href{#method-get_marked}{\code{marker$get_marked()}}
 }
 }
 \if{html}{\out{<hr>}}
@@ -88,7 +89,7 @@ Initialise a marker with \code{new} method.
 \if{html}{\out{<a id="method-mark"></a>}}
 \subsection{Method \code{mark()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{marker$mark(keywords, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{marker$mark(keywords, ..., send_marked = FALSE)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
@@ -100,6 +101,11 @@ to highlight.}
 \item{\code{...}}{Options passed to JavaScript, see the 
 \href{https://markjs.io/}{official documentation} under "mark"
 for the full list.}
+
+\item{\code{send_marked}}{Whether to send the number of highlighted 
+keywords to the R server. These can then be accessed with 
+the \code{get_marked} method. Note that this overwrites the 
+\code{done} options passed to the three dot construct.}
 }
 \if{html}{\out{</div>}}
 }
@@ -133,7 +139,7 @@ A method to remove highlights created by mark.js.
 \if{html}{\out{<a id="method-mark_regex"></a>}}
 \subsection{Method \code{mark_regex()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{marker$mark_regex(regex, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{marker$mark_regex(regex, ..., send_marked = FALSE)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
@@ -144,6 +150,11 @@ A method to remove highlights created by mark.js.
 \item{\code{...}}{Options passed to JavaScript, see the 
 \href{https://markjs.io/}{official documentation} under "markRegExp"
 for the full list.}
+
+\item{\code{send_marked}}{Whether to send the number of highlighted 
+keywords to the R server. These can then be accessed with 
+the \code{get_marked} method. Note that this overwrites the 
+\code{done} options passed to the three dot construct.}
 }
 \if{html}{\out{</div>}}
 }
@@ -156,7 +167,7 @@ A method to highlight custom regular expressions.
 \if{html}{\out{<a id="method-mark_ranges"></a>}}
 \subsection{Method \code{mark_ranges()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{marker$mark_ranges(ranges, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{marker$mark_ranges(ranges, ..., send_marked = FALSE)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
@@ -167,11 +178,28 @@ A method to highlight custom regular expressions.
 \item{\code{...}}{Options passed to JavaScript, see the 
 \href{https://markjs.io/}{official documentation} under "markRanges"
 for the full list.}
+
+\item{\code{send_marked}}{Whether to send the number of highlighted 
+keywords to the R server. These can then be accessed with 
+the \code{get_marked} method. Note that this overwrites the 
+\code{done} options passed to the three dot construct.}
 }
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
 A method to mark ranges with a start position and length. They will be applied to text nodes in the specified context.
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_marked"></a>}}
+\subsection{Method \code{get_marked()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{marker$get_marked()}\if{html}{\out{</div>}}
+}
+
+\subsection{Details}{
+A method to returned the number of keywords marked.
 }
 
 }
