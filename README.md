@@ -21,7 +21,7 @@ remotes::install_github("JohnCoene/marker")
 
 <img src="./man/figures/marker.gif">
 
-View the above gif with `marker_demo()`.
+Run the app above with `marker_demo()`.
 
 🚨 Remember to always include `use_marker` at the top of your shiny UI.
 
