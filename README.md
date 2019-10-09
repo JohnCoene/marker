@@ -4,6 +4,8 @@
 
 # marker
 
+<img src="./man/figures/logo.png" height="200px" align="right">
+
 Highlight text in Shiny with [markjs](https://markjs.io/).
 
 ## Installation
@@ -16,6 +18,8 @@ remotes::install_github("JohnCoene/marker")
 ```
 
 ## Example
+
+<img src="./man/figures/marker.gif">
 
 Basic usage, remember to always include `use_marker` at the top of your shiny UI. You can also run a demo with `marker_demo()`.
 
