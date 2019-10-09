@@ -1,0 +1,28 @@
+Package: marker
+Title: Highlight Text in 'Shiny'
+Version: 0.1.0.9000
+Authors@R: 
+    c(
+        person(given = "John",
+           family = "Coene",
+           role = c("aut", "cre"),
+           email = "jcoenep@gmail.com",
+           comment = c(ORCID = "0000-0002-6637-4107")
+        ),
+        person(
+            given = "Julian",
+            family = "Kühnel",
+            role = "ctb"
+        )
+    )
+Description: Highlight Text in 'Shiny'.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: false
+Depends: R (>= 2.10)
+Imports:
+    R6,
+    shiny,
+    crayon,
+    assertthat
+RoxygenNote: 6.1.99.9001
