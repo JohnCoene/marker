@@ -17,7 +17,7 @@ remotes::install_github("JohnCoene/marker")
 
 ## Example
 
-Basic usage, remember to always include `use_marker` at the top of your shiny UI.
+Basic usage, remember to always include `use_marker` at the top of your shiny UI. You can also run a demo with `marker_demo()`.
 
 ``` r
 library(shiny)
