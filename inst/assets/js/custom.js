@@ -1,4 +1,5 @@
 Shiny.addCustomMessageHandler('marker-init', function(opts) {
+  var context = document.querySelector(opts.selector); 
 	var instance = new Mark(opts.selector);
 	window.marker[opts.name] = instance;
 });
@@ -25,7 +26,9 @@ Shiny.addCustomMessageHandler('marker-mark-regex', function(opts) {
 
   if(opts.marked)
     opts.options.done = done;
-  window.marker[opts.name].markRegExp(opts.regex, opts.options)
+  
+  var regex = new RegExp(opts.regex);
+  window.marker[opts.name].markRegExp(regex, opts.options);
 });
 
 Shiny.addCustomMessageHandler('marker-mark-ranges', function(opts) {

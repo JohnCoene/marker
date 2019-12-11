@@ -57,6 +57,7 @@ assigned reactive context.}
 \item \href{#method-mark_regex}{\code{marker$mark_regex()}}
 \item \href{#method-mark_ranges}{\code{marker$mark_ranges()}}
 \item \href{#method-get_marked}{\code{marker$get_marked()}}
+\item \href{#method-clone}{\code{marker$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
@@ -202,5 +203,21 @@ A method to mark ranges with a start position and length. They will be applied t
 A method to returned the number of keywords marked.
 }
 
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-clone"></a>}}
+\subsection{Method \code{clone()}}{
+The objects of this class are cloneable with this method.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{marker$clone(deep = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deep}}{Whether to make a deep clone.}
+}
+\if{html}{\out{</div>}}
+}
 }
 }
