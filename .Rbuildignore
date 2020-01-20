@@ -2,3 +2,4 @@
 dev
 ^data-raw$
 .vscode
+^cran-comments\.md$
