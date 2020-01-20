@@ -4,7 +4,7 @@
 \name{lorem}
 \alias{lorem}
 \title{Lorem Ipsum}
-\format{An object of class \code{character} of length 1.}
+\format{A vector of length one comprised of 616 characters forming lorem ipsum.}
 \source{
 stringi package
 }
