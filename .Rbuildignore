@@ -1,3 +1,4 @@
 ^LICENSE\.md$
 dev
 ^data-raw$
+.vscode
