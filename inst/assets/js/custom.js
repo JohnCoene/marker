@@ -12,7 +12,9 @@ Shiny.addCustomMessageHandler('marker-mark', function(opts) {
   if(opts.marked)
     opts.options.done = done;
   
-  window.marker[opts.name].mark(opts.keywords, opts.options)
+  setTimeout(function(){
+    window.marker[opts.name].mark(opts.keywords, opts.options)
+  }, opts.delay);
 });
 
 Shiny.addCustomMessageHandler('marker-unmark', function(opts) {
