@@ -1,5 +1,7 @@
 
 <!-- badges: start -->
+[![Travis build status](https://travis-ci.org/JohnCoene/marker.svg?branch=master)](https://travis-ci.org/JohnCoene/marker)
+[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/JohnCoene/marker?branch=master&svg=true)](https://ci.appveyor.com/project/JohnCoene/marker)
 <!-- badges: end -->
 
 # marker

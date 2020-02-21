@@ -90,7 +90,7 @@ Initialise a marker with \code{new} method.
 \if{html}{\out{<a id="method-mark"></a>}}
 \subsection{Method \code{mark()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{marker$mark(keywords, ..., send_marked = FALSE)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{marker$mark(keywords, ..., send_marked = FALSE, delay = 0)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
@@ -107,6 +107,8 @@ for the full list.}
 keywords to the R server. These can then be accessed with 
 the \code{get_marked} method. Note that this overwrites the 
 \code{done} options passed to the three dot construct.}
+
+\item{\code{delay}}{Delay in milliseconds before highlighting text.}
 }
 \if{html}{\out{</div>}}
 }
