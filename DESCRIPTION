@@ -1,6 +1,7 @@
 Package: marker
 Title: Highlight Text in 'Shiny'
 Version: 0.1.1
+Date: 2020-02-20
 Authors@R: 
     c(
         person(given = "John",
@@ -15,7 +16,7 @@ Authors@R:
             role = "ctb"
         )
     )
-Description: Highlight Text in 'Shiny'.
+Description: Dynamically highlight text in 'Shiny'.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: false
@@ -27,3 +28,5 @@ Imports:
     jsonlite,
     assertthat
 RoxygenNote: 7.0.2
+URL: https://github.com/JohnCoene/marker
+BugReports: https://github.com/JohnCoene/marker/issues
