@@ -62,6 +62,7 @@ assigned reactive context.}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-new"></a>}}
+\if{latex}{\out{\hypertarget{method-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{marker$new(selector, session = NULL, name = NULL)}\if{html}{\out{</div>}}
@@ -88,6 +89,7 @@ Initialise a marker with \code{new} method.
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-mark"></a>}}
+\if{latex}{\out{\hypertarget{method-mark}{}}}
 \subsection{Method \code{mark()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{marker$mark(keywords, ..., send_marked = FALSE, delay = 0)}\if{html}{\out{</div>}}
@@ -119,6 +121,7 @@ A method to highlight custom search terms.
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-unmark"></a>}}
+\if{latex}{\out{\hypertarget{method-unmark}{}}}
 \subsection{Method \code{unmark()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{marker$unmark(...)}\if{html}{\out{</div>}}
@@ -140,9 +143,10 @@ A method to remove highlights created by mark.js.
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-mark_regex"></a>}}
+\if{latex}{\out{\hypertarget{method-mark_regex}{}}}
 \subsection{Method \code{mark_regex()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{marker$mark_regex(regex, ..., send_marked = FALSE)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{marker$mark_regex(regex, ..., send_marked = FALSE, delay = 0)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
@@ -158,6 +162,8 @@ for the full list.}
 keywords to the R server. These can then be accessed with 
 the \code{get_marked} method. Note that this overwrites the 
 \code{done} options passed to the three dot construct.}
+
+\item{\code{delay}}{Delay in milliseconds before highlighting text.}
 }
 \if{html}{\out{</div>}}
 }
@@ -168,6 +174,7 @@ A method to highlight custom regular expressions.
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-mark_ranges"></a>}}
+\if{latex}{\out{\hypertarget{method-mark_ranges}{}}}
 \subsection{Method \code{mark_ranges()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{marker$mark_ranges(ranges, ..., send_marked = FALSE)}\if{html}{\out{</div>}}
@@ -196,6 +203,7 @@ A method to mark ranges with a start position and length. They will be applied t
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-get_marked"></a>}}
+\if{latex}{\out{\hypertarget{method-get_marked}{}}}
 \subsection{Method \code{get_marked()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{marker$get_marked()}\if{html}{\out{</div>}}
@@ -208,6 +216,7 @@ A method to returned the number of keywords marked.
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

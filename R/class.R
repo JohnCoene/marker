@@ -125,8 +125,9 @@ marker <- R6::R6Class(
 #' keywords to the R server. These can then be accessed with 
 #' the \code{get_marked} method. Note that this overwrites the 
 #' \code{done} options passed to the three dot construct.
+#' @param delay Delay in milliseconds before highlighting text.
 
-    mark_regex = function(regex, ..., send_marked = FALSE){
+    mark_regex = function(regex, ..., send_marked = FALSE, delay = 0){
       assert_that(has_it(regex))
 
       private$.session$sendCustomMessage(
@@ -135,6 +136,7 @@ marker <- R6::R6Class(
           name = private$.name,
           regex = regex,
           marked = send_marked,
+          delay = delay,
           options = list(...)
         )
       )

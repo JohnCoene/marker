@@ -30,7 +30,9 @@ Shiny.addCustomMessageHandler('marker-mark-regex', function(opts) {
     opts.options.done = done;
   
   var regex = new RegExp(opts.regex);
-  window.marker[opts.name].markRegExp(regex, opts.options);
+  setTimeout(function(){
+    window.marker[opts.name].markRegExp(regex, opts.options);
+  }, opts.delay);
 });
 
 Shiny.addCustomMessageHandler('marker-mark-ranges', function(opts) {

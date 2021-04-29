@@ -4,12 +4,14 @@
 \name{lorem}
 \alias{lorem}
 \title{Lorem Ipsum}
-\format{A vector of length one comprised of 616 characters forming lorem ipsum.}
+\format{
+A vector of length one comprised of 616 characters forming lorem ipsum.
+}
 \source{
 stringi package
 }
 \usage{
-lorem
+data(lorem)
 }
 \description{
 A lorem ipsum paragraph
