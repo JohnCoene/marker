@@ -25,7 +25,7 @@ remotes::install_github("JohnCoene/marker")
 
 Run the app above with `marker_demo()`.
 
-🚨 Remember to always include `use_marker` at the top of your shiny UI.
+🚨 Remember to always include `useMarker` at the top of your shiny UI.
 
 ``` r
 library(shiny)
@@ -34,7 +34,7 @@ library(marker)
 data(lorem, package = "marker")
 
 ui <- fluidPage(
-  use_marker(), # include dependencies
+  useMarker(), # include dependencies
   p(id = "text-to-mark", lorem),
   textInput("text", "text to highlight")
 )
@@ -64,7 +64,7 @@ library(marker)
 data(lorem, package = "marker")
 
 ui <- fluidPage(
-  use_marker(),
+  useMarker(),
   h2("Test app"),
   tags$head(
     tags$style(

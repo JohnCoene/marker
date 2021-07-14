@@ -26,6 +26,7 @@ Imports:
     shiny,
     crayon,
     jsonlite,
+    htmltools,
     assertthat
 RoxygenNote: 7.1.1
 URL: https://github.com/JohnCoene/marker

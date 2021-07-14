@@ -4,7 +4,7 @@ library(marker)
 data(lorem)
 
 ui <- fluidPage(
-  use_marker(),
+  useMarker(),
   tags$head(
     tags$style(
       ".red{background-color:#FFB8C3;}

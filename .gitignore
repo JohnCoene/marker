@@ -1,3 +1,4 @@
 dev
 .vscode
 test.R
+node_modules

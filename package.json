@@ -1,0 +1,35 @@
+{
+  "name": "marker",
+  "version": "1.0.0",
+  "description": "<!-- badges: start --> [![Travis build status](https://travis-ci.org/JohnCoene/marker.svg?branch=master)](https://travis-ci.org/JohnCoene/marker) [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/JohnCoene/marker?branch=master&svg=true)](https://ci.appveyor.com/project/JohnCoene/marker) <!-- badges: end -->",
+  "main": "index.js",
+  "directories": {
+    "man": "man"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "none": "webpack --config webpack.dev.js --mode=none",
+    "development": "webpack --config webpack.dev.js",
+    "production": "webpack --config webpack.prod.js",
+    "watch": "webpack --config webpack.dev.js -d --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JohnCoene/marker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JohnCoene/marker/issues"
+  },
+  "homepage": "https://github.com/JohnCoene/marker#readme",
+  "devDependencies": {
+    "webpack": "^5.44.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-merge": "^5.8.0"
+  },
+  "dependencies": {
+    "mark.js": "^8.11.1"
+  }
+}

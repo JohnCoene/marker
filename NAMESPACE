@@ -2,5 +2,7 @@
 
 export(marker)
 export(marker_demo)
+export(useMarker)
 export(use_marker)
 import(assertthat)
+importFrom(htmltools,htmlDependency)

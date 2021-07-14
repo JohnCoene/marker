@@ -2,17 +2,23 @@
 #' 
 #' Include marker dependencies at the top of your shiny UI.
 #' 
+#' @importFrom htmltools htmlDependency
+#' 
+#' @name deps
 #' @export 
 use_marker <- function(){
-  shiny::singleton(
-    shiny::tags$head(
-			shiny::tags$script("window.marker = [];"),
-      shiny::tags$script(
-        src = "marker-assets/js/mark.min.js"
-      ),
-      shiny::tags$script(
-        src = "marker-assets/js/custom.js"
-      )
-    )
+  .Deprecated("useMarker", "marker")
+  useMarker()
+}
+
+#' @name deps
+#' @export 
+useMarker <- function(){
+  htmlDependency(
+    "marker",
+    version = utils::packageVersion("marker"),
+    package = "marker",
+    src = "packer",
+    script = "marker.js"
   )
 }
