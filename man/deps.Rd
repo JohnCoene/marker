@@ -13,3 +13,11 @@ useMarker()
 \description{
 Include marker dependencies at the top of your shiny UI.
 }
+\examples{
+library(shiny)
+
+ui <- fluidPage(
+ useMarker()
+)
+
+}

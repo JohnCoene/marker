@@ -2,6 +2,13 @@
 #' 
 #' Include marker dependencies at the top of your shiny UI.
 #' 
+#' @examples 
+#' library(shiny)
+#' 
+#' ui <- fluidPage(
+#'  useMarker()
+#' )
+#' 
 #' @importFrom htmltools htmlDependency
 #' 
 #' @name deps

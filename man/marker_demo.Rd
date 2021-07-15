@@ -9,3 +9,7 @@ marker_demo()
 \description{
 Run a demo of marker.
 }
+\examples{
+\dontrun{marked_demo()}
+
+}

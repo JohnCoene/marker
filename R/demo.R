@@ -2,6 +2,9 @@
 #' 
 #' Run a demo of marker.
 #' 
+#' @examples 
+#' \dontrun{marked_demo()}
+#' 
 #' @export
 marker_demo <- function(){
   shiny::shinyAppFile(

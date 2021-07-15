@@ -16,7 +16,8 @@ Authors@R:
             role = "ctb"
         )
     )
-Description: Dynamically highlight text in 'Shiny'.
+Description: Dynamically highlight text in 'Shiny' by keywords
+    ranges, or regex.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: false

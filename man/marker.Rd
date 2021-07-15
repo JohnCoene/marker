@@ -18,6 +18,7 @@ library(shiny)
 data(lorem, package = "marker")
 
 ui <- fluidPage(
+  useMarker(),
   p(id = "text-to-mark", lorem),
   textInput("mark", "Text to mark")
 )
@@ -37,6 +38,161 @@ server <- function(input, output){
 if(interactive())
   shinyApp(ui, server)
 
+
+## ------------------------------------------------
+## Method `marker$new`
+## ------------------------------------------------
+
+library(shiny)
+
+# load a paragraph
+data(lorem, package = "marker")
+
+ui <- fluidPage(
+  useMarker(),
+  p(id = "text-to-mark", lorem),
+  textInput("mark", "Text to mark")
+)
+
+server <- function(input, output){
+
+  my_marker <- marker$new("#text-to-mark")
+
+  observeEvent(input$mark, {
+    my_marker$
+      unmark()$ # unmark previously marked text
+      mark(input$mark) # mark what is searched
+  })
+
+}
+
+if(interactive())
+  shinyApp(ui, server)
+
+## ------------------------------------------------
+## Method `marker$mark`
+## ------------------------------------------------
+
+library(shiny)
+
+# load a paragraph
+data(lorem, package = "marker")
+
+ui <- fluidPage(
+  useMarker(),
+  p(id = "text-to-mark", lorem),
+  actionButton("mark", "Mark lorem")
+)
+
+server <- function(input, output){
+
+  my_marker <- marker$new("#text-to-mark")
+
+  observeEvent(input$mark, {
+    my_marker$
+      unmark()$ # unmark previously marked text
+      mark("lorem") # mark what is searched
+  })
+
+}
+
+if(interactive())
+ shinyApp(ui, server)
+
+## ------------------------------------------------
+## Method `marker$mark_regex`
+## ------------------------------------------------
+
+library(shiny)
+
+# load a paragraph
+data(lorem, package = "marker")
+
+ui <- fluidPage(
+  useMarker(),
+  p(id = "text-to-mark", lorem),
+  actionButton("mark", "Mark")
+)
+
+server <- function(input, output){
+
+  my_marker <- marker$new("#text-to-mark")
+
+  observeEvent(input$mark, {
+    my_marker$
+      unmark()$ # unmark previously marked text
+      mark_regex('[a-z]') # mark what is searched
+  })
+
+}
+
+if(interactive())
+  shinyApp(ui, server)
+
+## ------------------------------------------------
+## Method `marker$mark_ranges`
+## ------------------------------------------------
+
+library(shiny)
+
+# load a paragraph
+data(lorem, package = "marker")
+
+ui <- fluidPage(
+  useMarker(),
+  p(id = "text-to-mark", lorem),
+  actionButton("mark", "Mark")
+)
+
+server <- function(input, output){
+
+  my_marker <- marker$new("#text-to-mark")
+
+  observeEvent(input$mark, {
+    my_marker$
+      unmark()$ # unmark previously marked text
+      mark_ranges(list(list(start = 5, length = 10))) # mark what is searched
+  })
+
+}
+
+if(interactive())
+  shinyApp(ui, server)
+
+## ------------------------------------------------
+## Method `marker$get_marked`
+## ------------------------------------------------
+
+library(shiny)
+
+# load a paragraph
+data(lorem, package = "marker")
+
+ui <- fluidPage(
+  useMarker(),
+  p(id = "text-to-mark", lorem),
+  actionButton("mark", "Mark"),
+  verbatimTextOutput("marked")
+)
+
+server <- function(input, output){
+
+  my_marker <- marker$new("#text-to-mark")
+
+  observeEvent(input$mark, {
+    my_marker$
+      unmark()$
+      mark_regex('[a-z]', send_marked = TRUE)
+  })
+
+  output$marked <- renderPrint({
+     my_marker$get_marked() 
+  })
+
+}
+
+if(interactive())
+  shinyApp(ui, server)
 }
 \section{Active bindings}{
 \if{html}{\out{<div class="r6-active-bindings">}}
@@ -86,6 +242,38 @@ then the function attempts to get the current reacive domain.}
 Initialise a marker with \code{new} method.
 }
 
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{library(shiny)
+
+# load a paragraph
+data(lorem, package = "marker")
+
+ui <- fluidPage(
+  useMarker(),
+  p(id = "text-to-mark", lorem),
+  textInput("mark", "Text to mark")
+)
+
+server <- function(input, output){
+
+  my_marker <- marker$new("#text-to-mark")
+
+  observeEvent(input$mark, {
+    my_marker$
+      unmark()$ # unmark previously marked text
+      mark(input$mark) # mark what is searched
+  })
+
+}
+
+if(interactive())
+  shinyApp(ui, server)
+}
+\if{html}{\out{</div>}}
+
+}
+
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-mark"></a>}}
@@ -116,6 +304,38 @@ the \code{get_marked} method. Note that this overwrites the
 }
 \subsection{Details}{
 A method to highlight custom search terms.
+}
+
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{library(shiny)
+
+# load a paragraph
+data(lorem, package = "marker")
+
+ui <- fluidPage(
+  useMarker(),
+  p(id = "text-to-mark", lorem),
+  actionButton("mark", "Mark lorem")
+)
+
+server <- function(input, output){
+
+  my_marker <- marker$new("#text-to-mark")
+
+  observeEvent(input$mark, {
+    my_marker$
+      unmark()$ # unmark previously marked text
+      mark("lorem") # mark what is searched
+  })
+
+}
+
+if(interactive())
+ shinyApp(ui, server)
+}
+\if{html}{\out{</div>}}
+
 }
 
 }
@@ -171,6 +391,38 @@ the \code{get_marked} method. Note that this overwrites the
 A method to highlight custom regular expressions.
 }
 
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{library(shiny)
+
+# load a paragraph
+data(lorem, package = "marker")
+
+ui <- fluidPage(
+  useMarker(),
+  p(id = "text-to-mark", lorem),
+  actionButton("mark", "Mark")
+)
+
+server <- function(input, output){
+
+  my_marker <- marker$new("#text-to-mark")
+
+  observeEvent(input$mark, {
+    my_marker$
+      unmark()$ # unmark previously marked text
+      mark_regex('[a-z]') # mark what is searched
+  })
+
+}
+
+if(interactive())
+  shinyApp(ui, server)
+}
+\if{html}{\out{</div>}}
+
+}
+
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-mark_ranges"></a>}}
@@ -200,6 +452,38 @@ the \code{get_marked} method. Note that this overwrites the
 A method to mark ranges with a start position and length. They will be applied to text nodes in the specified context.
 }
 
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{library(shiny)
+
+# load a paragraph
+data(lorem, package = "marker")
+
+ui <- fluidPage(
+  useMarker(),
+  p(id = "text-to-mark", lorem),
+  actionButton("mark", "Mark")
+)
+
+server <- function(input, output){
+
+  my_marker <- marker$new("#text-to-mark")
+
+  observeEvent(input$mark, {
+    my_marker$
+      unmark()$ # unmark previously marked text
+      mark_ranges(list(list(start = 5, length = 10))) # mark what is searched
+  })
+
+}
+
+if(interactive())
+  shinyApp(ui, server)
+}
+\if{html}{\out{</div>}}
+
+}
+
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-get_marked"></a>}}
@@ -211,6 +495,46 @@ A method to mark ranges with a start position and length. They will be applied t
 
 \subsection{Details}{
 A method to returned the number of keywords marked.
+
+This requires setting \code{send_marked} to \code{TRUE} in
+the various \code{mark*} functions.
+}
+
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{library(shiny)
+
+# load a paragraph
+data(lorem, package = "marker")
+
+ui <- fluidPage(
+  useMarker(),
+  p(id = "text-to-mark", lorem),
+  actionButton("mark", "Mark"),
+  verbatimTextOutput("marked")
+)
+
+server <- function(input, output){
+
+  my_marker <- marker$new("#text-to-mark")
+
+  observeEvent(input$mark, {
+    my_marker$
+      unmark()$
+      mark_regex('[a-z]', send_marked = TRUE)
+  })
+
+  output$marked <- renderPrint({
+     my_marker$get_marked() 
+  })
+
+}
+
+if(interactive())
+  shinyApp(ui, server)
+}
+\if{html}{\out{</div>}}
+
 }
 
 }

@@ -13,6 +13,7 @@
 #' data(lorem, package = "marker")
 #' 
 #' ui <- fluidPage(
+#'   useMarker(),
 #'   p(id = "text-to-mark", lorem),
 #'   textInput("mark", "Text to mark")
 #' )
@@ -47,7 +48,33 @@ marker <- R6::R6Class(
 #' then the function attempts to get the current reacive domain.
 #' @param name A name, useful to distinguish between markers. If
 #' \code{NULL} a random name is generated.
-
+#' 
+#' @examples 
+#' library(shiny)
+#' 
+#' # load a paragraph
+#' data(lorem, package = "marker")
+#' 
+#' ui <- fluidPage(
+#'   useMarker(),
+#'   p(id = "text-to-mark", lorem),
+#'   textInput("mark", "Text to mark")
+#' )
+#' 
+#' server <- function(input, output){
+#' 
+#'   my_marker <- marker$new("#text-to-mark")
+#' 
+#'   observeEvent(input$mark, {
+#'     my_marker$
+#'       unmark()$ # unmark previously marked text
+#'       mark(input$mark) # mark what is searched
+#'   })
+#' 
+#' }
+#' 
+#' if(interactive())
+#'   shinyApp(ui, server)
     initialize = function(selector, session = NULL, name = NULL){
       assert_that(has_it(selector))
       
@@ -79,6 +106,33 @@ marker <- R6::R6Class(
 #' the \code{get_marked} method. Note that this overwrites the 
 #' \code{done} options passed to the three dot construct.
 #' @param delay Delay in milliseconds before highlighting text.
+#' 
+#' @examples 
+#' library(shiny)
+#' 
+#' # load a paragraph
+#' data(lorem, package = "marker")
+#' 
+#' ui <- fluidPage(
+#'   useMarker(),
+#'   p(id = "text-to-mark", lorem),
+#'   actionButton("mark", "Mark lorem")
+#' )
+#' 
+#' server <- function(input, output){
+#' 
+#'   my_marker <- marker$new("#text-to-mark")
+#' 
+#'   observeEvent(input$mark, {
+#'     my_marker$
+#'       unmark()$ # unmark previously marked text
+#'       mark("lorem") # mark what is searched
+#'   })
+#' 
+#' }
+#' 
+#' if(interactive())
+#'  shinyApp(ui, server)
 
     mark = function(keywords, ..., send_marked = FALSE, delay = 0){
       assert_that(has_it(keywords))
@@ -126,6 +180,33 @@ marker <- R6::R6Class(
 #' the \code{get_marked} method. Note that this overwrites the 
 #' \code{done} options passed to the three dot construct.
 #' @param delay Delay in milliseconds before highlighting text.
+#' 
+#' @examples 
+#' library(shiny)
+#' 
+#' # load a paragraph
+#' data(lorem, package = "marker")
+#' 
+#' ui <- fluidPage(
+#'   useMarker(),
+#'   p(id = "text-to-mark", lorem),
+#'   actionButton("mark", "Mark")
+#' )
+#' 
+#' server <- function(input, output){
+#' 
+#'   my_marker <- marker$new("#text-to-mark")
+#' 
+#'   observeEvent(input$mark, {
+#'     my_marker$
+#'       unmark()$ # unmark previously marked text
+#'       mark_regex('[a-z]') # mark what is searched
+#'   })
+#' 
+#' }
+#' 
+#' if(interactive())
+#'   shinyApp(ui, server)
 
     mark_regex = function(regex, ..., send_marked = FALSE, delay = 0){
       assert_that(has_it(regex))
@@ -152,6 +233,33 @@ marker <- R6::R6Class(
 #' keywords to the R server. These can then be accessed with 
 #' the \code{get_marked} method. Note that this overwrites the 
 #' \code{done} options passed to the three dot construct.
+#' 
+#' @examples 
+#' library(shiny)
+#' 
+#' # load a paragraph
+#' data(lorem, package = "marker")
+#' 
+#' ui <- fluidPage(
+#'   useMarker(),
+#'   p(id = "text-to-mark", lorem),
+#'   actionButton("mark", "Mark")
+#' )
+#' 
+#' server <- function(input, output){
+#' 
+#'   my_marker <- marker$new("#text-to-mark")
+#' 
+#'   observeEvent(input$mark, {
+#'     my_marker$
+#'       unmark()$ # unmark previously marked text
+#'       mark_ranges(list(list(start = 5, length = 10))) # mark what is searched
+#'   })
+#' 
+#' }
+#' 
+#' if(interactive())
+#'   shinyApp(ui, server)
 
     mark_ranges = function(ranges, ..., send_marked = FALSE){
       assert_that(has_it(ranges))
@@ -169,6 +277,41 @@ marker <- R6::R6Class(
     },
 
 #' @details A method to returned the number of keywords marked.
+#' 
+#' This requires setting \code{send_marked} to \code{TRUE} in
+#' the various \code{mark*} functions.
+#' 
+#' @examples 
+#' library(shiny)
+#' 
+#' # load a paragraph
+#' data(lorem, package = "marker")
+#' 
+#' ui <- fluidPage(
+#'   useMarker(),
+#'   p(id = "text-to-mark", lorem),
+#'   actionButton("mark", "Mark"),
+#'   verbatimTextOutput("marked")
+#' )
+#' 
+#' server <- function(input, output){
+#' 
+#'   my_marker <- marker$new("#text-to-mark")
+#' 
+#'   observeEvent(input$mark, {
+#'     my_marker$
+#'       unmark()$
+#'       mark_regex('[a-z]', send_marked = TRUE)
+#'   })
+#' 
+#'   output$marked <- renderPrint({
+#'      my_marker$get_marked() 
+#'   })
+#' 
+#' }
+#' 
+#' if(interactive())
+#'   shinyApp(ui, server)
 
     get_marked = function(){
       input <- paste0(private$.name, "_marked")
