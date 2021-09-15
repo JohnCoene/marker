@@ -1,7 +1,7 @@
 Package: marker
-Title: Highlight Text in 'Shiny'
+Title: Dynamically highlight Text in 'Shiny' applications 'UI' 
 Version: 0.1.1
-Date: 2021-07-14
+Date: 2021-09-15
 Authors@R: 
     c(
         person(given = "John",
@@ -16,8 +16,8 @@ Authors@R:
             role = "ctb"
         )
     )
-Description: Dynamically highlight text in 'Shiny' by keywords
-    ranges, or regex.
+Description: Dynamically highlight text in 'Shiny' by keywords,
+    ranges, or regular expressions.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: false
@@ -29,6 +29,6 @@ Imports:
     jsonlite,
     htmltools,
     assertthat
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 URL: https://github.com/JohnCoene/marker
 BugReports: https://github.com/JohnCoene/marker/issues
